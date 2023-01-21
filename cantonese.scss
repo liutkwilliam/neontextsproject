@@ -1,0 +1,157 @@
+$white: #f3f3f3;
+$dark: #141414;
+$primary: #ff0000;
+$secondary: #ffe600;
+$stroke: 3.5px; // outlline of han characters 
+$han-font: 5rem; // font size of han characters
+$english-font: 3rem;
+$vietnamese-font: 2.5rem;
+$number-font: 10rem;
+$blur: 0.08em; // glowing effect
+$shadow: 4px; // shadow for the border
+$brightness: 300%; // self-explainatory
+$circle-radius: 100%; // pure circle
+$circle-sides: 120px; // equal width and height for circle
+
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// layout
+
+body {
+    margin: 0 auto;
+    font-family: 'Istok Web', sans-serif;
+    color: $white;
+    font-size: 1rem;
+    min-height: 100vh;
+    background:linear-gradient(0deg, rgba($dark, 0.7), rgba($dark, 0.75)), url('20180216_SYD_CNYSYD-0136.jpg');
+    filter: brightness($brightness);
+    background-size: cover;
+    background-position: center;
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10rem 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+    .inner-container {
+        margin: 0 auto; 
+    }
+}
+
+// text
+.text-layer {
+    position: relative;
+    display: block;
+    padding: 1rem 2rem;
+    margin: .5rem;
+    text-align: center;
+    user-select: none;
+    border-radius: 1rem;
+    &.border {
+        border: 4px solid $white;
+        box-shadow: 0 0 $shadow $shadow $white; 
+    }
+    &.primary {
+        border: 4px solid $primary;
+        box-shadow: 0 0 $shadow $shadow $primary;
+    }
+    &.secondary {
+        border: 4px solid $secondary;
+        box-shadow: 0 0 $shadow $shadow $secondary;
+    }
+}
+
+//circle (Chinese)
+.outer-circle {
+    border: 4px solid $secondary;
+    border-radius: $circle-radius;
+    margin: 1.5rem;
+    box-shadow: 0 0 $shadow $shadow $secondary;
+}
+
+.inner-circle {
+    border-radius: $circle-radius;
+    padding: 2rem;
+    width: $circle-sides;
+    height: $circle-sides;
+}
+
+// neon effect
+.neon-text {
+    color: transparent;
+    transition: .25s ease;
+    animation: flicker 1.5s infinite;
+    font-weight: 800;
+    &::before {
+        content: attr(data-text);
+        position: absolute;
+        filter: blur($blur);
+        mix-blend-mode: difference;
+    }
+    &.filled {
+        color: $white;
+        &.primary {
+            color: $primary;
+        }
+        &.secondary {
+            color: $secondary;
+        }
+        &::before {
+            mix-blend-mode: normal;
+        }
+    }
+}
+
+// language
+.cantonese {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: $han-font;
+    -webkit-text-stroke: $stroke $primary;
+}
+
+.english {
+    font-size: $english-font;
+    letter-spacing: 5px;
+}
+
+.vietnamese {
+    font-weight: 800;
+    font-size: $vietnamese-font;
+    letter-spacing: 5px;
+}
+
+.numbers {
+    font-size: $number-font;
+    letter-spacing: 30px;
+}
+
+// logo
+.logo {
+    text-align: center;
+    img {
+        height: 40px;
+    }
+    p {
+        margin: .2rem auto;
+    }
+}
+
+// animation keyframes
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        filter: brightness($brightness);
+    }
+    20%, 24%, 55% {
+        filter: brightness(10%);
+    }
+}
