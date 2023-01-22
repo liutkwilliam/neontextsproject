@@ -45,7 +45,7 @@ body {
 .text-layer {
   position: relative;
   display: block;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   margin: .5rem;
   text-align: center;
   -webkit-user-select: none;
@@ -141,6 +141,7 @@ body {
 .numbers {
   font-size: 10rem;
   letter-spacing: 30px;
+  margin-right: -30px;
 }
 
 .logo {
@@ -174,6 +175,126 @@ body {
   20%, 24%, 55% {
     -webkit-filter: brightness(10%);
             filter: brightness(10%);
+  }
+}
+
+@media (max-width: 1299.98px) {
+  .cantonese {
+    font-size: 3.33333rem;
+    -webkit-text-stroke: 2.33333px #ff0000;
+  }
+  .english {
+    font-size: 2rem;
+  }
+  .vietnamese {
+    font-size: 1.66667rem;
+  }
+  .numbers {
+    font-size: 6.66667rem;
+  }
+  .outer-circle {
+    border: 2px solid #ffe600;
+    margin: 0 auto;
+  }
+  .outer-circle:nth-child(2) {
+    margin: 1.5rem auto;
+  }
+  .inner-circle {
+    padding: 2rem;
+    width: 80px;
+    height: 80px;
+  }
+  .grid-container {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .english {
+    font-size: 1.5rem;
+  }
+  .vietnamese {
+    font-size: 1.25rem;
+  }
+  .numbers {
+    font-size: 5rem;
+  }
+  .grid-container {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .cantonese {
+    font-size: 2.5rem;
+    -webkit-text-stroke: 1.75px #ff0000;
+  }
+  .outer-circle {
+    border: 2px solid #ffe600;
+    margin: 1.5rem auto;
+  }
+  .inner-circle {
+    padding: 2rem;
+    width: 60px;
+    height: 60px;
+  }
+  .main-container {
+    padding: 0;
+  }
+  .inner-container.mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+  }
+  .grid-container {
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .cantonese {
+    font-size: 2rem;
+    -webkit-text-stroke: 1.16667px #ff0000;
+  }
+  .english {
+    font-size: 1.42857rem;
+  }
+  .vietnamese {
+    font-size: 1.19048rem;
+  }
+  .outer-circle {
+    border: 2px solid #ffe600;
+    margin: 1rem auto;
+  }
+  .inner-circle {
+    padding: 1.5rem;
+    width: 48px;
+    height: 48px;
+  }
+  .grid-container {
+    gap: 0;
+  }
+  .logo {
+    text-align: center;
+    font-size: smaller;
+    margin-top: 1rem;
+  }
+  .logo img {
+    height: 30px;
+  }
+  .logo p {
+    margin: .2rem auto;
   }
 }
 /*# sourceMappingURL=cantonese.css.map */
